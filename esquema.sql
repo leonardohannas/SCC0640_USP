@@ -1,4 +1,4 @@
---       [ INTEGRANTES DO GRUPO ]     STICKER BOOM       --
+--               [ INTEGRANTES DO GRUPO ]                --
 --  Carlos Henrique Hannas de Carvalho  NºUSP: 11965988  --
 --  Guilherme Azevedo Escudeiro         NºUSP: 11345600  --
 --  Leonardo Hannas de Carvalho Santos  NºUSP: 11800480  --
@@ -55,3 +55,4 @@ CREATE TABLE AVALIACAO (
     CONSTRAINT CK_TIPO CHECK (UPPER(TIPO) IN ('TROCA', 'VENDA')),
     CONSTRAINT PK_AVALIACAO PRIMARY KEY (COLECIONADOR, DATA_HORA),
     CONSTRAINT FK_AVALIACAO FOREIGN KEY (COLECIONADOR) REFERENCES COLECIONADOR(CPF) ON DELETE CASCADE
+);
