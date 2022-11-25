@@ -1,9 +1,12 @@
 package br.com.stickerboom.database;
 
 import br.com.stickerboom.entity.Administrator;
+import br.com.stickerboom.entity.Collector;
 import oracle.jdbc.OracleDriver;
+import oracle.sql.NUMBER;
 
 import java.sql.*;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 /**
@@ -68,5 +71,44 @@ public class StickerBoomDB {
         }
 
         return null;
+    }
+
+    public static Collector getCollector(String cpf) {
+
+        try (Connection connection = getConnection()) {
+
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "SELECT * FROM COLECIONADOR WHERE (CPF = ?)");
+            preparedStatement.setString(1, cpf);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                return new Collector(resultSet);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return null;
+    }
+
+    public static void insertCollector(Collector collector) {
+
+        try (Connection connection = getConnection()) {
+
+            PreparedStatement pstmt = connection.prepareStatement("INSERT INTO COLECIONADOR VALUES (?, ?, ?, ?)");
+
+            pstmt.setString(1, collector.getCPF());
+            pstmt.setString(2, collector.getName());
+            pstmt.setString(3, collector.getAddress());
+            if (collector.getReputation() != null)
+                pstmt.setFloat(4, collector.getReputation());
+            else
+                pstmt.setFloat(4, 0.0f);
+
+            pstmt.execute();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
