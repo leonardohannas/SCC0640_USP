@@ -11,10 +11,10 @@ public final class Terminal {
         messages = ResourceBundle.getBundle("br.com.stickerboom.io.view.messages");
     }
 
-    public static Terminal getInstance() {
+    public static void build() {
         if (instance == null)
             instance = new Terminal();
-        return instance;
+
     }
 
     public static void printStickerBoomLogo() {
