@@ -4,7 +4,6 @@ import br.com.stickerboom.database.StickerBoomDB;
 import br.com.stickerboom.entity.Collector;
 import br.com.stickerboom.io.view.Terminal;
 
-import java.sql.SQLException;
 
 public class Main {
 
