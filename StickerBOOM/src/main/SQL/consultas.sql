@@ -5,12 +5,8 @@
 --  Lucas Carvalho Freiberger Stapf     NºUSP: 11800559  --
 -----------------------------------------------------------
 
--- Busca pela avaliação da venda de maior valor --
-SELECT NEGOCIACAO, VALOR FROM VENDA
-    WHERE VALOR = (SELECT MAX(VALOR) FROM VENDA);
---     achar na aval_venda o colecionador 1 e data_hora
---     achar na avaliacao o colecionador 1 e data_hora
 
+-- (JA ESTA FUNCIONANDO)
 -- Retorna a linha da tabela AVALIACAO_VENDA de maior valor de VENDA
 SELECT AV.COLECIONADOR_1, AV.DATA_HORA, AV.NEGOCIACAO, AV.COLECIONADOR_2 FROM AVALIACAO_VENDA AV
     JOIN VENDA V ON AV.NEGOCIACAO = V.NEGOCIACAO AND AV.COLECIONADOR_2 = V.COLECIONADOR
