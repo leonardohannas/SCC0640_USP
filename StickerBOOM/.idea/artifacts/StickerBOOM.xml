@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="StickerBOOM">
+    <output-path>$PROJECT_DIR$/out/artifacts/StickerBOOM</output-path>
+    <root id="archive" name="StickerBOOM.jar">
+      <element id="module-output" name="StickerBOOM" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/security/osdt_core/21.7.0.0/osdt_core-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/security/osdt_cert/21.7.0.0/osdt_cert-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/ha/simplefan/21.7.0.0/simplefan-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/jdbc/ucp11/21.7.0.0/ucp11-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/ha/ons/21.7.0.0/ons-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/xml/xdb/21.7.0.0/xdb-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/xml/xmlparserv2/21.7.0.0/xmlparserv2-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/jdbc/ojdbc11/21.7.0.0/ojdbc11-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/nls/orai18n/21.7.0.0/orai18n-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/security/oraclepki/21.7.0.0/oraclepki-21.7.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/oracle/database/jdbc/rsi/21.7.0.0/rsi-21.7.0.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

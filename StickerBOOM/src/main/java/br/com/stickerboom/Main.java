@@ -1,24 +1,21 @@
 package br.com.stickerboom;
 
-import br.com.stickerboom.database.StickerBoomDB;
-import br.com.stickerboom.entity.Collector;
-import br.com.stickerboom.io.view.Terminal;
+import br.com.stickerboom.database.DBConnection;
+import br.com.stickerboom.view.ScreenManager;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 
-public class Main {
+public class Main extends Application {
 
     public static void main(String[] args) {
+        DBConnection.build();
+        launch();
+    }
 
-        Terminal.build();
-        StickerBoomDB.build();
-        Terminal.printStickerBoomLogo();
-
-        System.out.println(StickerBoomDB.getAdministrator("123.456.789-10"));
-        System.out.println(StickerBoomDB.getCollector("678.901.234-56"));
-
-        Collector collector = new Collector("111.111.111-11", "Lucas", "Sanca, 1");
-        StickerBoomDB.insertCollector(collector);
-        System.out.println(StickerBoomDB.getCollector("111.111.111-11"));
-
+    @Override
+    public void start(Stage stage) throws Exception {
+        ScreenManager.build();
+        ScreenManager.showLoginRegisterScreen();
     }
 }

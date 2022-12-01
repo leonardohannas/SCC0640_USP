@@ -108,7 +108,9 @@ public class StickerBoomDB {
             pstmt.execute();
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.println("SQLState: " + e.getSQLState());
+            System.out.println("Message: " + e.getMessage());
+            System.out.println("Error Code: " + e.getErrorCode());
         }
     }
 }
