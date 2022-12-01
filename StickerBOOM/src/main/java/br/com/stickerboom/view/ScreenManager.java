@@ -11,7 +11,8 @@ public class ScreenManager {
     public static final short HEIGHT = 400;
     public static final short WIDTH = 600;
 
-    private static final String PATH_LOGIN_REGISTER_SCREEN = "/br/com/stickerboom/login_register_screen.fxml";
+    private static final String PATH_LOGIN_REGISTER_SCREEN = "/br/com/stickerboom/view/login_register_screen.fxml";
+    private static final String PATH_REGISTER_SCREEN = "/br/com/stickerboom/view/register_screen.fxml";
 
     private static Stage window;
 
@@ -29,10 +30,17 @@ public class ScreenManager {
             instance = new ScreenManager();
     }
 
-    public static void showLoginRegisterScreen() throws IOException {
-        FXMLLoader loader = new FXMLLoader(ScreenManager.class.getResource(PATH_LOGIN_REGISTER_SCREEN));
-        Scene scene = new Scene(loader.load());
-        window.setScene(scene);
+    private static void showFXMLScreen(String path) throws IOException {
+        FXMLLoader loader = new FXMLLoader(ScreenManager.class.getResource(path));
+        window.setScene(new Scene(loader.load()));
         window.show();
+    }
+
+    public static void showLoginRegisterScreen() throws IOException {
+       showFXMLScreen(PATH_LOGIN_REGISTER_SCREEN);
+    }
+
+    public static void showRegisterScreen() throws IOException {
+        showFXMLScreen(PATH_REGISTER_SCREEN);
     }
 }
