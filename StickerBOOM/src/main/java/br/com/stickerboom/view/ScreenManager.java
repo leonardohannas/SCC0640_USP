@@ -8,7 +8,8 @@ import java.io.IOException;
 
 public class ScreenManager {
 
-    public static final short HEIGHT = 400;
+    public static final String WINDOW_TITLE = "StickerBOOM";
+    public static final short HEIGHT = 500;
     public static final short WIDTH = 600;
 
     private static final String PATH_LOGIN_REGISTER_SCREEN = "/br/com/stickerboom/view/login_register_screen.fxml";
@@ -20,9 +21,8 @@ public class ScreenManager {
 
     private ScreenManager() {
         window = new Stage();
+        window.setTitle(WINDOW_TITLE);
         window.setResizable(false);
-        window.setWidth(WIDTH);
-        window.setHeight(HEIGHT);
     }
 
     public static void build() {

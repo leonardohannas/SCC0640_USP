@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:controller="br.com.stickerboom.view.LoginScreenController" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.LoginScreenController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="328.0" style="-fx-background-color: MediumAquaMarine;">
          <children>
@@ -31,17 +31,17 @@
                   <Font name="System Bold" size="28.0" />
                </font>
             </Text>
-            <Button fx:id="login_button" layoutX="14.0" layoutY="242.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: MediumAquaMarine; -fx-background-radius: 20;" text="Entrar" textFill="WHITE">
+            <Button fx:id="loginButton" layoutX="14.0" layoutY="242.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: MediumAquaMarine; -fx-background-radius: 20;" text="Entrar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <TextField fx:id="cpf_field" layoutX="13.0" layoutY="192.0" prefHeight="33.0" prefWidth="245.0" promptText="CPF">
+            <TextField fx:id="cpfField" layoutX="13.0" layoutY="192.0" prefHeight="33.0" prefWidth="245.0" promptText="CPF">
                <font>
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Button fx:id="register_button" layoutX="158.0" layoutY="242.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: MediumAquaMarine; -fx-background-radius: 20;" text="Registrar" textFill="WHITE">
+            <Button fx:id="registerButton" layoutX="158.0" layoutY="242.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: MediumAquaMarine; -fx-background-radius: 20;" text="Registrar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
@@ -61,7 +61,7 @@
                   <Font name="System Bold" size="28.0" />
                </font>
             </Text>
-            <Text fx:id="error_text" fill="RED" layoutX="13.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF inválido" wrappingWidth="245.0" />
+            <Text fx:id="errorText" fill="RED" layoutX="13.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="245.0" />
          </children>
       </AnchorPane>
    </children>

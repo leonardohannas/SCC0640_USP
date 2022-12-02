@@ -7,5 +7,6 @@ module br.com.stickerboom {
 
     opens br.com.stickerboom to javafx.fxml;
     exports br.com.stickerboom;
+    opens br.com.stickerboom.view to javafx.fxml;
     exports br.com.stickerboom.view;
 }
