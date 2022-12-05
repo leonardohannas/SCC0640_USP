@@ -36,7 +36,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <TextField fx:id="cpfField" layoutX="13.0" layoutY="192.0" prefHeight="33.0" prefWidth="245.0" promptText="CPF">
+            <TextField fx:id="cpfField" layoutX="13.0" layoutY="192.0" onContextMenuRequested="#onContextMenuRequested" onKeyReleased="#onKeyReleased" prefHeight="33.0" prefWidth="245.0" promptText="CPF">
                <font>
                   <Font size="14.0" />
                </font>

@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.input.*;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -40,43 +41,55 @@ public class LoginScreenController implements Initializable {
 
     }
 
-    private ChangeListener<String> onTextChangeCPFField = new ChangeListener<String>() {
-        @Override
-        public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+    public void onKeyReleased(KeyEvent keyEvent) {
 
-            System.out.println("s: " + s);
-            System.out.println("t1: "+ t1);
+        if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
+            return;
 
-            if (!t1.matches("\\d")) {
+        int caret = cpfField.getCaretPosition();
 
-                String sFormatted = t1.replaceAll("\\D", "");
+        if (keyEvent.getCode() == KeyCode.BACK_SPACE && cpfField.getText().length() > 3)
+            caret--;
 
-                if (sFormatted.length() > 11) // 11 digitos CPF
-                    sFormatted = cpfValue;
+        if (!cpfField.getText().matches("\\d")) {
 
-                cpfValue = sFormatted;
+            String sFormatted = cpfField.getText().replaceAll("\\D", "");
 
-                if (sFormatted.length() > 9) {
-                    sFormatted = sFormatted.substring(0, 3) + "." +
-                            sFormatted.substring(3, 6) + "." +
-                            sFormatted.substring(6, 9) + "-" +
-                            sFormatted.substring(9);
-                } else if (sFormatted.length() > 6) {
-                    sFormatted = sFormatted.substring(0, 3) + "." +
-                            sFormatted.substring(3, 6) + "." +
-                            sFormatted.substring(6);
-                } else if (sFormatted.length() > 3) {
-                    sFormatted = sFormatted.substring(0, 3) + "." +
-                            sFormatted.substring(3);
-                }
+            if (sFormatted.length() > 11) // 11 digitos CPF
+                sFormatted = cpfValue;
 
-                cpfField.setText(sFormatted);
+            cpfValue = sFormatted;
+
+            if (sFormatted.length() > 9) {
+                sFormatted = sFormatted.substring(0, 3) + "." +
+                        sFormatted.substring(3, 6) + "." +
+                        sFormatted.substring(6, 9) + "-" +
+                        sFormatted.substring(9);
+                caret++;
+            } else if (sFormatted.length() > 6) {
+                sFormatted = sFormatted.substring(0, 3) + "." +
+                        sFormatted.substring(3, 6) + "." +
+                        sFormatted.substring(6);
+                caret++;
+            } else if (sFormatted.length() > 3) {
+                sFormatted = sFormatted.substring(0, 3) + "." +
+                        sFormatted.substring(3);
+                caret++;
             }
+
+            cpfField.setText(sFormatted);
+            cpfField.positionCaret(caret);
         }
-    };
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cpfField.textProperty().addListener(onTextChangeCPFField);
     }
+
+
+
+    public void onContextMenuRequested(ContextMenuEvent contextMenuEvent) {
+
+    }
+
 }
