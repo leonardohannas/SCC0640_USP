@@ -1,6 +1,6 @@
 package br.com.stickerboom.entity;
 
-public abstract class Person {
+public abstract class User {
 
     private String CPF;
     private String name;

@@ -3,14 +3,15 @@ package br.com.stickerboom.entity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Collector extends Person {
+public class Collector extends User {
 
     private Float reputation;
 
     public Collector(String CPF, String name, String address) {
         setCPF(CPF);
         setName(name);
-        setAddress(address);
+        setAddress(address
+        );
     }
 
     public Collector(ResultSet resultSet) throws SQLException {

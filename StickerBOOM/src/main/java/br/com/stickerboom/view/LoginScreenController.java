@@ -1,5 +1,7 @@
 package br.com.stickerboom.view;
 
+import br.com.stickerboom.database.CommonQueries;
+import br.com.stickerboom.entity.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -21,7 +23,9 @@ public class LoginScreenController implements Initializable {
     private Text errorText;
 
     public void onLoginButtonClick(ActionEvent actionEvent) {
-
+        String cpf = cpfField.getText();
+        User user = CommonQueries.getUser(cpf);
+        System.out.println(user);
     }
 
     public void onRegisterButtonClick(ActionEvent actionEvent) {
@@ -65,7 +69,6 @@ public class LoginScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         cpfField.textProperty().addListener(onTextChangeCPFField);
     }
 }

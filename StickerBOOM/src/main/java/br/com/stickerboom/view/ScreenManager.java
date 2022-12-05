@@ -15,6 +15,7 @@ public class ScreenManager {
     private static final String PATH_LOGIN_REGISTER_SCREEN = "/br/com/stickerboom/view/login_register_screen.fxml";
     private static final String PATH_REGISTER_SCREEN = "/br/com/stickerboom/view/register_screen.fxml";
 
+    private static final String PATH_MAIN_SCREEN_COLLECTOR = "/br/com/stickerboom/view/main_screen_collector.fxml";
     private static Stage window;
 
     private static ScreenManager instance;
@@ -42,5 +43,9 @@ public class ScreenManager {
 
     public static void showRegisterScreen() throws IOException {
         showFXMLScreen(PATH_REGISTER_SCREEN);
+    }
+
+    public static void showMainScreenCollector() throws IOException {
+        showFXMLScreen(PATH_MAIN_SCREEN_COLLECTOR);
     }
 }
