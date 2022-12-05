@@ -1,0 +1,12 @@
+.list-view {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.list-cell:filled:focused:selected, .list-cell:filled:selected {
+    -fx-background-color: #66cdaa;
+}
+
+.list-cell:odd {
+    -fx-background-color: white;
+}

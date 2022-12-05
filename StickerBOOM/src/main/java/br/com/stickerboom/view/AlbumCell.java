@@ -42,7 +42,7 @@ public class AlbumCell extends ListCell<Album> {
             setGraphic(null);
         } else {
             titleLabel.setText(album.getTitle());
-            ISBNLabel.setText(Long.toString(album.getISBN()));
+            ISBNLabel.setText("ISBN: " + Long.toString(album.getISBN()));
             numberStickersLabel.setText(Integer.toString(album.getStickerNumber()));
             setGraphic(pane);
         }

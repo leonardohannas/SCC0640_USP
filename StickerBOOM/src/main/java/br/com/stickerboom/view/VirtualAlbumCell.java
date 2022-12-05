@@ -48,7 +48,7 @@ public class VirtualAlbumCell extends ListCell<Album> {
             setGraphic(null);
         } else {
             titleLabel.setText(album.getTitle());
-            ISBNLabel.setText(Long.toString(album.getISBN()));
+            ISBNLabel.setText("ISBN: " + Long.toString(album.getISBN()));
             maxStickersLabel.setText(Integer.toString(album.getStickerNumber()));
             numberStickersLabel.setText(Integer.toString(CommonQueries.getStickerNumberInVirtualAlbum(album.getISBN(), (Collector) ScreenManager.getUser())));
             setGraphic(pane);
