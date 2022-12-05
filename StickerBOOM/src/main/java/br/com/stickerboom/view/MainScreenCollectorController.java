@@ -38,7 +38,7 @@ public class MainScreenCollectorController implements Initializable {
         reputationCollectorLabel.setText("Reputação: " + Float.toString(((Collector) ScreenManager.getUser()).getReputation()));
 
         listViewAlbumsSystem.setCellFactory(new AlbumCellFactory());
-        listViewAlbumsCollector.setCellFactory(new AlbumCellFactory());
+        listViewAlbumsCollector.setCellFactory(new VirtualAlbumCellFactory());
 
         List<Album> listS = CommonQueries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
         for (Album album : listS)

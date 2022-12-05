@@ -122,4 +122,29 @@ public class CommonQueries {
                 throw new RuntimeException(e);
             }
         }
+        
+        public static Integer getStickerNumberInVirtualAlbum(long ISBN, Collector collector) {
+            
+            Integer retVal = null;
+
+            try (Connection con = DBConnection.getConnection()) {
+
+                PreparedStatement pStmt = con.prepareStatement(
+                        "SELECT COUNT(*) FROM ALBUM_VIRTUAL_FIGURINHA " +
+                                "WHERE ALBUM_V = ? AND COLECIONADOR = ?"
+                );
+
+                pStmt.setLong(1, ISBN);
+                pStmt.setString(2, collector.getCPF());
+
+                ResultSet resultSet = pStmt.executeQuery();
+                if (resultSet.next())
+                    retVal = resultSet.getInt(1);
+
+                return retVal;
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
 }
