@@ -3,16 +3,15 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <VBox fillWidth="false" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.MainScreenCollectorController">
    <children>
-      <AnchorPane prefHeight="60.0" prefWidth="600.0">
+      <AnchorPane prefHeight="140.0" prefWidth="600.0">
          <children>
             <StackPane layoutX="14.0" layoutY="11.0" style="-fx-background-color: #66cdaa; -fx-background-radius: 10;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <Text fill="WHITE" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" text="Colecionador">
+                  <Text fx:id="collectorNameText" fill="WHITE" fontSmoothingType="LCD" stroke="BLACK" strokeType="OUTSIDE" text="Colecionador">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -22,7 +21,16 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </StackPane>
-            <SVGPath content="M9.5 14.25l-5.584 2.936 1.066-6.218L.465 6.564l6.243-.907L9.5 0l2.792 5.657 6.243.907-4.517 4.404 1.066 6.218" fill="#fff200" layoutX="235.0" layoutY="18.0" />
+            <Label fx:id="addressCollectorLabel" layoutX="14.0" layoutY="53.0" text="Endereço">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="reputationCollectorLabel" layoutX="14.0" layoutY="70.0" text="Reputação">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <TabPane prefHeight="360.0" prefWidth="600.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" stylesheets="@tab_style.css" tabClosingPolicy="UNAVAILABLE">
@@ -38,7 +46,10 @@
           </Tab>
           <Tab text="Meus álbuns">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="listViewAlbumsCollector" prefHeight="178.0" prefWidth="600.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

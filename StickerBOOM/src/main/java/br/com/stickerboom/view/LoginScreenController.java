@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,7 +26,14 @@ public class LoginScreenController implements Initializable {
     public void onLoginButtonClick(ActionEvent actionEvent) {
         String cpf = cpfField.getText();
         User user = CommonQueries.getUser(cpf);
-        System.out.println(user);
+        if (user != null) {
+            ScreenManager.setUser(user);
+            try {
+                ScreenManager.showMainScreenCollector();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public void onRegisterButtonClick(ActionEvent actionEvent) {

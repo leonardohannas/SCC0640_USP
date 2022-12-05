@@ -1,5 +1,6 @@
 package br.com.stickerboom.view;
 
+import br.com.stickerboom.entity.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,12 +12,11 @@ public class ScreenManager {
     public static final String WINDOW_TITLE = "StickerBOOM";
     public static final short HEIGHT = 500;
     public static final short WIDTH = 600;
-
     private static final String PATH_LOGIN_REGISTER_SCREEN = "/br/com/stickerboom/view/login_register_screen.fxml";
     private static final String PATH_REGISTER_SCREEN = "/br/com/stickerboom/view/register_screen.fxml";
-
     private static final String PATH_MAIN_SCREEN_COLLECTOR = "/br/com/stickerboom/view/main_screen_collector.fxml";
     private static Stage window;
+    private static User user;
 
     private static ScreenManager instance;
 
@@ -24,6 +24,14 @@ public class ScreenManager {
         window = new Stage();
         window.setTitle(WINDOW_TITLE);
         window.setResizable(false);
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        ScreenManager.user = user;
     }
 
     public static void build() {

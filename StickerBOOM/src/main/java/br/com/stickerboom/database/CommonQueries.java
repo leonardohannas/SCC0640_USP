@@ -72,4 +72,54 @@ public class CommonQueries {
                 throw new RuntimeException(e);
             }
         }
+
+        public static List<Album> getAllAlbumsExcept(Collector collector) {
+
+            try (Connection con = DBConnection.getConnection()) {
+
+                PreparedStatement pStmt = con.prepareStatement(
+                        "SELECT * FROM ALBUM " +
+                        "WHERE ISBN NOT IN " +
+                        "(SELECT AV.ALBUM FROM ALBUM_VIRTUAL AV " +
+                        "WHERE ? = AV.COLECIONADOR)");
+
+                pStmt.setString(1, collector.getCPF());
+                ResultSet resultSet = pStmt.executeQuery();
+                List<Album> albumList = new LinkedList<>();
+
+                while (resultSet.next())
+                    albumList.add(new Album(resultSet));
+
+                return albumList;
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        public static List<Album> getAllAlbumsFrom(Collector collector) {
+
+            try (Connection con = DBConnection.getConnection()) {
+
+                PreparedStatement pStmt = con.prepareStatement(
+                        "SELECT * FROM ALBUM " +
+                                "WHERE ISBN IN " +
+                                "(SELECT AV.ALBUM FROM ALBUM_VIRTUAL AV " +
+                                "WHERE ? = AV.COLECIONADOR)"
+                );
+
+                pStmt.setString(1, collector.getCPF());
+                ResultSet resultSet = pStmt.executeQuery();
+
+                List<Album> albumList = new LinkedList<>();
+
+                while (resultSet.next())
+                    albumList.add(new Album(resultSet));
+
+                return albumList;
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
 }
