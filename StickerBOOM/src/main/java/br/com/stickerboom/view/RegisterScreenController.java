@@ -26,6 +26,9 @@ public class RegisterScreenController {
     @FXML
     private TextField nameField;
 
+    @FXML
+    private TextField addressField;
+
     public void cpfKeyReleased(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
             return;
@@ -69,18 +72,29 @@ public class RegisterScreenController {
     public void nameKeyReleased(KeyEvent keyEvent) {
 
         int caret;
-
         if (!nameField.getText().matches("[a-z A-Z]+")) {
             String sFormatted = nameField.getText();
 
-            //sFormatted.matches("[a-z A-Z]+");
+            caret = nameField.getCaretPosition() - 1;
 
-            sFormatted = sFormatted.substring(0, sFormatted.length());
-            //caret = cpfField.getCaretPosition();
+            sFormatted = sFormatted.replaceAll("[^(a-z A-Z)]+", "");
 
             nameField.setText(sFormatted);
-            //nameField.positionCaret(caret);
+            nameField.positionCaret(caret);
+        }
+    }
 
+    public void addressKeyReleased(KeyEvent keyEvent) {
+        int caret;
+        if (!addressField.getText().matches("[\\w \\. , ]+")) {
+            String sFormatted = addressField.getText();
+            System.out.println("Aquiiiiii");
+            caret = addressField.getCaretPosition() - 1;
+
+            sFormatted = sFormatted.replaceAll("@", "");
+
+            addressField.setText(sFormatted);
+            addressField.positionCaret(caret);
         }
     }
 

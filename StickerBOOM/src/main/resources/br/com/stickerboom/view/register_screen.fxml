@@ -46,7 +46,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <TextField layoutX="11.0" layoutY="225.0" prefHeight="33.0" prefWidth="245.0" promptText="Enreço">
+            <TextField fx:id="addressField" layoutX="11.0" layoutY="225.0" onKeyReleased="#addressKeyReleased" prefHeight="33.0" prefWidth="245.0" promptText="Endereço">
                <font>
                   <Font size="14.0" />
                </font>
