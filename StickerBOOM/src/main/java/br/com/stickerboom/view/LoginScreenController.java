@@ -6,10 +6,16 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +29,9 @@ public class LoginScreenController implements Initializable {
 
     @FXML
     private Text errorText;
+
+    @FXML
+    private Button registerButton;
 
     public void onLoginButtonClick(ActionEvent actionEvent) {
         String cpf = cpfField.getText();
@@ -38,7 +47,18 @@ public class LoginScreenController implements Initializable {
     }
 
     public void onRegisterButtonClick(ActionEvent actionEvent) {
-
+        try{
+            Stage currentScreen = (Stage) registerButton.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("register_screen.fxml"));
+            Scene scene = new Scene(root);
+            currentScreen.setScene(scene);
+            currentScreen.show();
+        } catch(IOException e) {
+            Alert message = new Alert(Alert.AlertType.ERROR);
+            message.setContentText(e.getMessage());
+            message.setHeaderText(null);
+            message.showAndWait();
+        }
     }
 
     public void onKeyReleased(KeyEvent keyEvent) {
