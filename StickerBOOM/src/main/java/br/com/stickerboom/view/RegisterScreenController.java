@@ -72,30 +72,35 @@ public class RegisterScreenController {
     public void nameKeyReleased(KeyEvent keyEvent) {
 
         int caret;
-        if (!nameField.getText().matches("[a-z A-Z]+")) {
-            String sFormatted = nameField.getText();
+        String sFormatted = nameField.getText();
 
+        if (!nameField.getText().matches("[a-z A-Z á-ú Á-Ú ç Ç]+")) {
             caret = nameField.getCaretPosition() - 1;
 
-            sFormatted = sFormatted.replaceAll("[^(a-z A-Z)]+", "");
+            sFormatted = sFormatted.replaceAll("[^(a-z A-Z á-ú Á-Ú)]+", "");
 
             nameField.setText(sFormatted);
             nameField.positionCaret(caret);
+        } else {
+            sFormatted = sFormatted.toUpperCase();
         }
     }
 
     public void addressKeyReleased(KeyEvent keyEvent) {
         int caret;
-        if (!addressField.getText().matches("[\\w \\. , ]+")) {
-            String sFormatted = addressField.getText();
-            System.out.println("Aquiiiiii");
+        String sFormatted = addressField.getText();
+
+        if (!addressField.getText().matches("[\\w \\.]+")) {
             caret = addressField.getCaretPosition() - 1;
 
             sFormatted = sFormatted.replaceAll("@", "");
 
             addressField.setText(sFormatted);
             addressField.positionCaret(caret);
+        } else {
+            sFormatted = sFormatted.toUpperCase();
         }
+
     }
 
     public void buttonReturnScreen(ActionEvent actionEvent) {
