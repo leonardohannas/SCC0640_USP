@@ -6,5 +6,8 @@ module br.com.stickerboom {
     requires java.sql.rowset;
 
     opens br.com.stickerboom to javafx.fxml;
+    opens br.com.stickerboom.view to javafx.fxml;
     exports br.com.stickerboom;
+    exports br.com.stickerboom.view;
+    exports br.com.stickerboom.album;
 }
