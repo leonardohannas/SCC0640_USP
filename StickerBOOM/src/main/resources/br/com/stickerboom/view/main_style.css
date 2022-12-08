@@ -1,0 +1,86 @@
+.background {
+    -fx-background-color: linear-gradient(to right top, #ffffff, #f8fdff, #e7fdff, #d4feff, #c7fff7);
+}
+
+.shadow {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 5, 5);
+}
+
+.shadow-light {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 5, 5);
+
+}
+.background_gradient_red {
+    -fx-background-color: linear-gradient(to left top, #f76666, #fa7d7e, #fc9496, #fbaaac, #f9bfc2);;
+}
+
+.background_red-stickerboom {
+    -fx-background-color: linear-gradient(to left bottom, #880000, #a20f11, #bd1d20, #d9292f, #f53540);
+}
+
+.background_red {
+    -fx-background-color: #780808;
+}
+
+.fill_red {
+    -fx-fill: #780808;
+}
+
+.icon-button-available-albums {
+    -icon: "M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z";
+    -fx-background-color: white;
+    -size: 24;
+    -fx-min-height: -size;
+    -fx-min-width: -size;
+    -fx-max-height: -size;
+    -fx-max-width: -size;
+    -fx-shape: -icon;
+}
+
+.icon-button-my-albums {
+    -icon: "M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z  M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z  M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z";
+    -fx-background-color: white;
+    -size: 24;
+    -fx-min-height: -size;
+    -fx-min-width: -size;
+    -fx-max-height: -size;
+    -fx-max-width: -size;
+    -fx-shape: -icon;
+}
+
+.text-button-main-list {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-family: "Droid Serif";
+    -fx-font-weight: bold;
+}
+
+.text-title-pane {
+    -fx-text-fill: black;
+    -fx-font-size: 32px;
+    -fx-font-family: "Droid Serif";
+    -fx-font-weight: bold;
+}
+
+.text-button {
+    -fx-text-fill: white;
+}
+
+.icon-button:hover {
+    -icon-paint: linear-gradient(to bottom, red, black);
+}
+
+/*
+---------------------------------
+Novas alteracoes
+---------------------------------
+*/
+
+.main-style-button {
+    -fx-background-radius: 20;
+    -fx-background-color: #780808;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-family: "Droid Serif";
+    -fx-font-weight: bold;
+}

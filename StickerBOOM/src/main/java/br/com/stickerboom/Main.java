@@ -19,8 +19,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         ScreenManager.build();
-        //ScreenManager.showLoginRegisterScreen();
-        ScreenManager.showRegisterScreen();
-
+        ScreenManager.showMainScreenCollector();
     }
 }
