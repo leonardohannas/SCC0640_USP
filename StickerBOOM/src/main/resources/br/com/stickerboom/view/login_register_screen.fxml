@@ -6,6 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
+
 <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="background_red" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.LoginScreenController">
    <children>
       <Group layoutX="331.0" layoutY="279.0" opacity="0.1" scaleX="3.5" scaleY="3.5">
