@@ -77,7 +77,7 @@ public class RegisterScreenController {
         if (!nameField.getText().matches("[a-z A-Z á-ú Á-Ú ç Ç]+")) {
             caret = nameField.getCaretPosition() - 1;
 
-            sFormatted = sFormatted.replaceAll("[^(a-z A-Z á-ú Á-Ú)]+", "");
+            sFormatted = sFormatted.replaceAll("[^(a-z A-Z á-ú Á-Ú  ç Ç)]+", "");
 
             nameField.setText(sFormatted);
             nameField.positionCaret(caret);
@@ -90,7 +90,7 @@ public class RegisterScreenController {
         int caret;
         String sFormatted = addressField.getText();
 
-        if (!addressField.getText().matches("[\\w \\.]+")) {
+        if (!addressField.getText().matches("[\\w]+")) {
             caret = addressField.getCaretPosition() - 1;
 
             sFormatted = sFormatted.replaceAll("@", "");
