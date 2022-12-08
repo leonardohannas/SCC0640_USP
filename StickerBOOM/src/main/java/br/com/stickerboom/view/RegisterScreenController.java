@@ -74,8 +74,8 @@ public class RegisterScreenController {
 
         int cutString;
         int tamCurrent = sFormatted.length();
-        if(tamCurrent > 5) {
-            cutString = tamCurrent - 5;
+        if(tamCurrent > 30) {
+            cutString = tamCurrent - 30;
             sFormatted = sFormatted.substring(0, tamCurrent - cutString);
             nameField.setText(sFormatted);
             nameField.positionCaret(caret);
@@ -97,8 +97,8 @@ public class RegisterScreenController {
 
         int cutString;
         int tamCurrent = sFormatted.length();
-        if(tamCurrent > 5) {
-            cutString = tamCurrent - 5;
+        if(tamCurrent > 50) {
+            cutString = tamCurrent - 50;
             sFormatted = sFormatted.substring(0, tamCurrent - cutString);
             addressField.setText(sFormatted);
             addressField.positionCaret(caret);
