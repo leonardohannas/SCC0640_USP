@@ -1,0 +1,11 @@
+.background {
+    -fx-background-color: linear-gradient(to right top, #ffffff, #f8fdff, #e7fdff, #d4feff, #c7fff7);
+}
+
+.background-stickerboom {
+    -fx-background-color: linear-gradient(to left top, #005347, #1e7b6c, #38a594, #52d1be, #6dffea);
+}
+
+.shadow {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 5, 5);
+}
