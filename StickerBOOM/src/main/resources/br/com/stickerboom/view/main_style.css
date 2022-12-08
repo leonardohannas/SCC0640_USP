@@ -69,3 +69,18 @@
 .icon-button:hover {
     -icon-paint: linear-gradient(to bottom, red, black);
 }
+
+/*
+---------------------------------
+Novas alteracoes
+---------------------------------
+*/
+
+.main-style-button {
+    -fx-background-radius: 20;
+    -fx-background-color: #780808;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-family: "Droid Serif";
+    -fx-font-weight: bold;
+}
