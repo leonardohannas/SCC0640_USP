@@ -17,7 +17,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="150.0" layoutX="84.0" layoutY="15.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
          </children>
       </Group>
-      <HBox alignment="CENTER_LEFT" layoutX="150.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <HBox alignment="CENTER_LEFT" layoutX="150.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="shadow">
          <children>
             <AnchorPane prefHeight="400.0" prefWidth="285.0" style="-fx-background-color: white;">
                <children>
