@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -16,7 +17,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="150.0" layoutX="84.0" layoutY="15.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
          </children>
       </Group>
-      <HBox alignment="CENTER_LEFT" layoutX="150.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="shadow">
+      <HBox alignment="CENTER_LEFT" layoutX="150.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="shadow" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="100.0">
          <children>
             <AnchorPane prefHeight="400.0" prefWidth="285.0" style="-fx-background-color: white;">
                <children>
@@ -25,22 +26,29 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="156.0" layoutY="276.0" mnemonicParsing="false" onAction="#onActionRegister" prefHeight="33.0" prefWidth="100.0" styleClass="main-style-button" text="Registrar" textFill="WHITE">
+                  <Button layoutX="156.0" layoutY="276.0" mnemonicParsing="false" onAction="#onActionRegister" prefHeight="33.0" prefWidth="100.0" text="Registrar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="main-style-button" />
+                        <String fx:value="main-font-family" />
+                     </styleClass>
                   </Button>
-                  <Text fill="DARKGRAY" layoutX="11.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF">
+                  <Text fill="DARKGRAY" layoutX="11.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="CPF">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text fill="MEDIUMAQUAMARINE" layoutX="43.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fill_red" text="Seus dados">
+                  <Text fill="MEDIUMAQUAMARINE" layoutX="43.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seus dados">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="fill_red" />
+                        <String fx:value="main-font-family" />
+                     </styleClass>
                   </Text>
-                  <Text fill="RED" layoutX="14.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome inválido" wrappingWidth="245.0" />
                   <Button fx:id="returnButton" layoutX="15.0" layoutY="353.0" mnemonicParsing="false" onAction="#buttonReturnScreen" prefHeight="33.0" prefWidth="33.0" style="-fx-background-radius: 20;" styleClass="background_red" text="&lt;" textFill="WHITE">
                      <font>
                         <Font name="Noto Mono" size="15.0" />
@@ -51,7 +59,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Text fill="DARKGRAY" layoutX="11.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome">
+                  <Text fill="DARKGRAY" layoutX="11.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="Nome">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -61,7 +69,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Text fill="DARKGRAY" layoutX="11.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço">
+                  <Text fill="DARKGRAY" layoutX="11.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="Endereço">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -70,12 +78,12 @@
             </AnchorPane>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="328.0" styleClass="background_red-stickerboom">
                <children>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="76.0" layoutY="92.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Estamos quase lá" wrappingWidth="174.0">
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="76.0" layoutY="92.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="Estamos quase lá" wrappingWidth="174.0">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="57.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preencha mais alguns dados para poder acessar um mundo de figurinhas!" textAlignment="CENTER" wrappingWidth="212.986328125">
+                  <Text fill="WHITE" layoutX="57.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="Preencha mais alguns dados para poder acessar um mundo de figurinhas!" textAlignment="CENTER" wrappingWidth="212.986328125">
                      <font>
                         <Font size="12.0" />
                      </font>

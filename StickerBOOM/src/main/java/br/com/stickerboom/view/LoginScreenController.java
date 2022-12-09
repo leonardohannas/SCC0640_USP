@@ -47,6 +47,7 @@ public class LoginScreenController {
         User user = Queries.getUser(cpf);
 
         if (user != null) {
+
             if (user instanceof Administrator) {
                 ScreenManager.showAlert(
                         "Login inválido",
@@ -55,12 +56,21 @@ public class LoginScreenController {
                         Alert.AlertType.ERROR);
                 return;
             }
+
             ScreenManager.setUser(user);
             try {
                 ScreenManager.showMainScreenCollector();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        } else {
+
+            ScreenManager.showAlert(
+                    "Usuário inválido",
+                    "Nenhum colecionador com este CPF foi encontrado!",
+                    "Clique em Registrar e aproveite um mundo de possibilidades!",
+                    Alert.AlertType.INFORMATION
+            );
         }
     }
 

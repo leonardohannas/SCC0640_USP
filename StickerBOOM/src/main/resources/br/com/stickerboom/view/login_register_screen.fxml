@@ -50,6 +50,9 @@
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <TextField fx:id="cpfField" layoutX="13.0" layoutY="192.0" onContextMenuRequested="#onContextMenuRequested" onKeyReleased="#onKeyReleased" prefHeight="33.0" prefWidth="245.0" promptText="CPF" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.0">
                      <font>
@@ -60,6 +63,9 @@
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Text fill="DARKGRAY" layoutX="14.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="CPF do Usuário" AnchorPane.leftAnchor="14.0">
                      <font>

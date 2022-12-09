@@ -4,6 +4,7 @@ import br.com.stickerboom.database.Queries;
 import br.com.stickerboom.entity.Collector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -113,18 +114,6 @@ public class RegisterScreenController {
 
     public void buttonReturnScreen(ActionEvent actionEvent) throws IOException {
         ScreenManager.showLoginRegisterScreen();
-//        try{
-//            Stage currentScreen = (Stage) returnButton.getScene().getWindow();
-//            Parent root = FXMLLoader.load(getClass().getResource("login_register_screen.fxml"));
-//            Scene scene = new Scene(root);
-//            currentScreen.setScene(scene);
-//            currentScreen.show();
-//        } catch(IOException e) {
-//            Alert message = new Alert(Alert.AlertType.ERROR);
-//            message.setContentText(e.getMessage());
-//            message.setHeaderText(null);
-//            message.showAndWait();
-//        }
     }
 
     public void onActionRegister(ActionEvent actionEvent) {
@@ -140,6 +129,17 @@ public class RegisterScreenController {
             && address != null && address.length() > 0) {
 
             int result = Queries.insertCollector(cpf, name, address);
+
+            if (result != 1) {
+                ScreenManager.showAlert(
+                        "Erro de cadastro",
+                        "Não foi possível cadastrar seus dados no banco de dados.",
+                        "Tente novamente mais tarde.",
+                        Alert.AlertType.ERROR
+                );
+                return;
+            }
+
             Collector collector = (Collector) Queries.getUser(cpf);
             ScreenManager.setUser(collector);
 
@@ -148,6 +148,14 @@ public class RegisterScreenController {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        } else {
+
+            ScreenManager.showAlert(
+                    "Dados inválidos",
+                    "Verifique se seus dados estão corretos!",
+                    "Seu CPF deve estar no formato xxx.xxx.xxx-xx, nome e endereço não podem estar vazios!",
+                    Alert.AlertType.INFORMATION
+            );
         }
     }
 }
