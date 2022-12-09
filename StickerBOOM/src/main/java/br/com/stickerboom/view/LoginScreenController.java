@@ -36,7 +36,7 @@ public class LoginScreenController implements Initializable {
     public void onLoginButtonClick(ActionEvent actionEvent) {
         String cpf = cpfField.getText();
         User user = CommonQueries.getUser(cpf);
-        if (user != null) {
+        if(user != null) {
             ScreenManager.setUser(user);
             try {
                 ScreenManager.showMainScreenCollector();
@@ -63,15 +63,15 @@ public class LoginScreenController implements Initializable {
 
     public void onKeyReleased(KeyEvent keyEvent) {
 
-        if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
+        if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
             return;
 
         int caret = cpfField.getCaretPosition();
 
-        if (keyEvent.getCode() == KeyCode.BACK_SPACE && cpfField.getText().length() > 3)
+        if(keyEvent.getCode() == KeyCode.BACK_SPACE && cpfField.getText().length() > 3)
             caret--;
 
-        if (!cpfField.getText().matches("\\d")) {
+        if(!cpfField.getText().matches("\\d")) {
 
             String sFormatted = cpfField.getText().replaceAll("\\D", "");
 
@@ -80,18 +80,18 @@ public class LoginScreenController implements Initializable {
 
             cpfValue = sFormatted;
 
-            if (sFormatted.length() > 9) {
+            if(sFormatted.length() > 9) {
                 sFormatted = sFormatted.substring(0, 3) + "." +
                         sFormatted.substring(3, 6) + "." +
                         sFormatted.substring(6, 9) + "-" +
                         sFormatted.substring(9);
                 caret++;
-            } else if (sFormatted.length() > 6) {
+            } else if(sFormatted.length() > 6) {
                 sFormatted = sFormatted.substring(0, 3) + "." +
                         sFormatted.substring(3, 6) + "." +
                         sFormatted.substring(6);
                 caret++;
-            } else if (sFormatted.length() > 3) {
+            } else if(sFormatted.length() > 3) {
                 sFormatted = sFormatted.substring(0, 3) + "." +
                         sFormatted.substring(3);
                 caret++;

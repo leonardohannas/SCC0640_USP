@@ -20,5 +20,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         ScreenManager.build();
         ScreenManager.showMainScreenCollector();
+        //ScreenManager.showRegisterScreen();
+
     }
 }

@@ -3,7 +3,6 @@ package br.com.stickerboom.view;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -30,7 +29,7 @@ public class RegisterScreenController {
     private TextField addressField;
 
     public void cpfKeyReleased(KeyEvent keyEvent) {
-        if (keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
+        if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
             return;
 
         int caret = cpfField.getCaretPosition();
@@ -63,7 +62,6 @@ public class RegisterScreenController {
                         sFormatted.substring(3);
                 caret++;
             }
-
             cpfField.setText(sFormatted);
             cpfField.positionCaret(caret);
         }
@@ -71,12 +69,19 @@ public class RegisterScreenController {
 
     public void nameKeyReleased(KeyEvent keyEvent) {
 
-        int caret;
+        int caret = nameField.getCaretPosition() - 1;
         String sFormatted = nameField.getText();
 
-        if (!nameField.getText().matches("[a-z A-Z á-ú Á-Ú ç Ç]+")) {
-            caret = nameField.getCaretPosition() - 1;
+        int cutString;
+        int tamCurrent = sFormatted.length();
+        if(tamCurrent > 30) {
+            cutString = tamCurrent - 30;
+            sFormatted = sFormatted.substring(0, tamCurrent - cutString);
+            nameField.setText(sFormatted);
+            nameField.positionCaret(caret);
+        }
 
+        if (!nameField.getText().matches("[a-z A-Z á-ú Á-Ú ç Ç]+")) {
             sFormatted = sFormatted.replaceAll("[^(a-z A-Z á-ú Á-Ú  ç Ç)]+", "");
 
             nameField.setText(sFormatted);
@@ -87,12 +92,19 @@ public class RegisterScreenController {
     }
 
     public void addressKeyReleased(KeyEvent keyEvent) {
-        int caret;
+        int caret = caret = addressField.getCaretPosition() - 1;;
         String sFormatted = addressField.getText();
 
-        if (!addressField.getText().matches("[\\w]+")) {
-            caret = addressField.getCaretPosition() - 1;
+        int cutString;
+        int tamCurrent = sFormatted.length();
+        if(tamCurrent > 50) {
+            cutString = tamCurrent - 50;
+            sFormatted = sFormatted.substring(0, tamCurrent - cutString);
+            addressField.setText(sFormatted);
+            addressField.positionCaret(caret);
+        }
 
+        if (!addressField.getText().matches("[\\w]+")) {
             sFormatted = sFormatted.replaceAll("@", "");
 
             addressField.setText(sFormatted);
@@ -100,7 +112,6 @@ public class RegisterScreenController {
         } else {
             sFormatted = sFormatted.toUpperCase();
         }
-
     }
 
     public void buttonReturnScreen(ActionEvent actionEvent) {
