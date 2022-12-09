@@ -1,16 +1,13 @@
 package br.com.stickerboom.view;
 
+import br.com.stickerboom.database.Queries;
+import br.com.stickerboom.entity.Collector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
 
 import java.io.IOException;
 
@@ -114,20 +111,44 @@ public class RegisterScreenController {
         }
     }
 
-    public void buttonReturnScreen(ActionEvent actionEvent) {
-        try{
-            Stage currentScreen = (Stage) returnButton.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("login_register_screen.fxml"));
-            Scene scene = new Scene(root);
-            currentScreen.setScene(scene);
-            currentScreen.show();
-        } catch(IOException e) {
-            Alert message = new Alert(Alert.AlertType.ERROR);
-            message.setContentText(e.getMessage());
-            message.setHeaderText(null);
-            message.showAndWait();
-        }
+    public void buttonReturnScreen(ActionEvent actionEvent) throws IOException {
+        ScreenManager.showLoginRegisterScreen();
+//        try{
+//            Stage currentScreen = (Stage) returnButton.getScene().getWindow();
+//            Parent root = FXMLLoader.load(getClass().getResource("login_register_screen.fxml"));
+//            Scene scene = new Scene(root);
+//            currentScreen.setScene(scene);
+//            currentScreen.show();
+//        } catch(IOException e) {
+//            Alert message = new Alert(Alert.AlertType.ERROR);
+//            message.setContentText(e.getMessage());
+//            message.setHeaderText(null);
+//            message.showAndWait();
+//        }
     }
 
+    public void onActionRegister(ActionEvent actionEvent) {
+
+        String cpf, name, address;
+
+        cpf = cpfField.getText();
+        name = nameField.getText();
+        address = addressField.getText();
+
+        if (cpf != null && cpf.length() == 14
+            && name != null && name.length() > 0
+            && address != null && address.length() > 0) {
+
+            int result = Queries.insertCollector(cpf, name, address);
+            Collector collector = (Collector) Queries.getUser(cpf);
+            ScreenManager.setUser(collector);
+
+            try {
+                ScreenManager.showMainScreenCollector();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 }
 
