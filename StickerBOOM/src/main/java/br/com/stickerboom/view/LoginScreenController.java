@@ -1,7 +1,9 @@
 package br.com.stickerboom.view;
 
-import br.com.stickerboom.database.Queries;
+import br.com.stickerboom.database.CommonQueries;
 import br.com.stickerboom.entity.User;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +35,7 @@ public class LoginScreenController implements Initializable {
 
     public void onLoginButtonClick(ActionEvent actionEvent) {
         String cpf = cpfField.getText();
-        User user = Queries.getUser(cpf);
+        User user = CommonQueries.getUser(cpf);
         if (user != null) {
             ScreenManager.setUser(user);
             try {
