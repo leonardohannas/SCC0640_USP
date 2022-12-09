@@ -14,7 +14,7 @@ public class ScreenManager {
     public static final short WIDTH = 600;
     private static final String PATH_LOGIN_REGISTER_SCREEN = "/br/com/stickerboom/view/login_register_screen.fxml";
     private static final String PATH_REGISTER_SCREEN = "/br/com/stickerboom/view/register_screen.fxml";
-    private static final String PATH_MAIN_SCREEN_COLLECTOR = "/br/com/stickerboom/view/main_screen_collector_2.fxml";
+    private static final String PATH_MAIN_SCREEN_COLLECTOR = "/br/com/stickerboom/view/main_screen_collector.fxml";
     private static Stage window;
     private static User user;
 
