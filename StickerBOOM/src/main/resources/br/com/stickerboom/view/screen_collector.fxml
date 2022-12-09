@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="600.0" prefWidth="900.0" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.MainScreenCollectorController">
+<HBox prefHeight="600.0" prefWidth="900.0" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.ScreenCollectorController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="240.0" styleClass="background_red">
          <children>

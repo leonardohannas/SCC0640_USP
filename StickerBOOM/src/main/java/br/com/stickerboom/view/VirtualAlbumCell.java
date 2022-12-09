@@ -1,7 +1,7 @@
 package br.com.stickerboom.view;
 
 import br.com.stickerboom.album.Album;
-import br.com.stickerboom.database.CommonQueries;
+import br.com.stickerboom.database.Queries;
 import br.com.stickerboom.entity.Collector;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,7 +55,7 @@ public class VirtualAlbumCell extends ListCell<Album> {
             titleLabel.setText(album.getTitle());
             ISBNLabel.setText("ISBN: " + Long.toString(album.getISBN()));
             maxStickersLabel.setText(Integer.toString(album.getStickerNumber()));
-            numberStickersLabel.setText(Integer.toString(CommonQueries.getStickerNumberInVirtualAlbum(album.getISBN(), (Collector) ScreenManager.getUser())));
+            numberStickersLabel.setText(Integer.toString(Queries.getStickerNumberInVirtualAlbum(album.getISBN(), (Collector) ScreenManager.getUser())));
 
             if (isSelected() && isFocused()) {
                 titleLabel.setTextFill(Color.valueOf("#780808"));

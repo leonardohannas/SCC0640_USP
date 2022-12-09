@@ -1,12 +1,9 @@
 package br.com.stickerboom;
 
-import br.com.stickerboom.database.CommonQueries;
 import br.com.stickerboom.database.DBConnection;
 import br.com.stickerboom.view.ScreenManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
-import java.sql.SQLException;
 
 
 public class Main extends Application {
