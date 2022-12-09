@@ -21,17 +21,23 @@
                   </Text>
                </children>
             </Group>
-            <HBox alignment="CENTER" layoutX="13.0" layoutY="94.0" spacing="4.0">
+            <HBox fx:id="availableAlbums" alignment="CENTER" layoutX="13.0" layoutY="94.0" spacing="4.0">
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" styleClass="icon-button-available-albums" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-button-main-list" text="Álbuns disponíveis" />
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </HBox>
-            <HBox alignment="CENTER" layoutX="13.0" layoutY="133.0" spacing="4.0">
+            <HBox fx:id="myAlbums" alignment="CENTER" layoutX="13.0" layoutY="133.0" spacing="4.0">
                <children>
                   <Region prefHeight="200.0" prefWidth="200.0" styleClass="icon-button-my-albums" />
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-button-main-list" text="Meus álbuns" />
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </HBox>
             <Group layoutX="16.0" layoutY="562.0" scaleX="2.0" scaleY="2.0">
                <children>
@@ -52,7 +58,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="600.0" prefWidth="660.0">
          <children>
-            <Text layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Álbuns Disponíveis">
+            <Text fx:id="titleSearchPage" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Álbuns Disponíveis">
                <styleClass>
                   <String fx:value="text-title-pane" />
                   <String fx:value="shadow-light" />
