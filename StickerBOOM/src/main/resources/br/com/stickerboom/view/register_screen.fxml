@@ -7,7 +7,6 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="background_red" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.RegisterScreenController">
    <children>
       <Group layoutX="341.0" layoutY="289.0" opacity="0.1" scaleX="3.5" scaleY="3.5">
@@ -26,7 +25,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="156.0" layoutY="276.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" styleClass="main-style-button" text="Registrar" textFill="WHITE">
+                  <Button layoutX="156.0" layoutY="276.0" mnemonicParsing="false" onAction="#onActionRegister" prefHeight="33.0" prefWidth="100.0" styleClass="main-style-button" text="Registrar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

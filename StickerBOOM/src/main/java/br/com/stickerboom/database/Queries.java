@@ -11,6 +11,69 @@ import java.util.List;
 
 public class Queries {
 
+        public static int insertCollector(String cpf, String name, String address) {
+
+            Connection con = null;
+            int result = 0;
+
+            try  {
+
+                con = DBConnection.getConnection();
+                con.setAutoCommit(false);
+
+                PreparedStatement pStmt = con.prepareStatement(
+                        "INSERT INTO CARGO VALUES (?, 'USER')");
+
+                pStmt.setString(1, cpf);
+
+                result = pStmt.executeUpdate();
+
+                if (result != 1) {
+                    con.rollback();
+                    con.setAutoCommit(true);
+                    return result;
+                }
+
+                pStmt = con.prepareStatement(
+                        "INSERT INTO COLECIONADOR VALUES " +
+                                "(?, ?, ?, DEFAULT)");
+                
+                pStmt.setString(1, cpf);
+                pStmt.setString(2, name);
+                pStmt.setString(3, address);
+
+                result = pStmt.executeUpdate();
+
+                if (result != 1) {
+                    con.rollback();
+                    con.setAutoCommit(true);
+                    return result;
+                }
+
+                con.commit();
+
+            } catch (SQLException e) {
+
+                try {
+                    if (con != null)
+                        con.rollback();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            } finally {
+
+                try {
+                    if (con != null)
+                        con.setAutoCommit(true);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            
+            return result;
+        }
+
         public static User getUser(String CPF) {
 
             try (Connection con = DBConnection.getConnection()) {
