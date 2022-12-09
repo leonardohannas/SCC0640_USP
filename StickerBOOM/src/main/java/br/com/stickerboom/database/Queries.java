@@ -148,7 +148,7 @@ public class Queries {
             }
         }
 
-        public static List<Album> getAlbumsNotFromCollectorWhere(String title, Long ISBN, Collector collector) {
+        public static List<Album> getAlbumsNotFrom(Collector collector, String title, Long ISBN) {
 
             try (Connection con = DBConnection.getConnection()) {
 
@@ -178,7 +178,7 @@ public class Queries {
         }
 
 
-        public static List<Album> getAlbumsNotFromCollectorWhere(String title, Collector collector) {
+        public static List<Album> getAlbumsNotFrom(Collector collector, String title) {
 
             try (Connection con = DBConnection.getConnection()) {
 
@@ -205,13 +205,97 @@ public class Queries {
             }
         }
 
-    public static List<Album> getAlbumsNotFromCollectorWhere(long ISBN, Collector collector) {
+    public static List<Album> getAlbumsNotFrom(Collector collector, long ISBN) {
 
         try (Connection con = DBConnection.getConnection()) {
 
             PreparedStatement pStmt = con.prepareStatement(
                     "SELECT * FROM ALBUM " +
                             "WHERE ISBN NOT IN " +
+                            "(SELECT AV.ALBUM FROM ALBUM_VIRTUAL AV " +
+                            "WHERE ? = AV.COLECIONADOR) " +
+                            "AND TO_CHAR(ISBN) LIKE CONCAT(TO_CHAR(?), '%')");
+
+            pStmt.setString(1, collector.getCPF());
+            pStmt.setLong(2, ISBN);
+
+            ResultSet resultSet = pStmt.executeQuery();
+
+            List<Album> retVal = new LinkedList<>();
+            while (resultSet.next())
+                retVal.add(new Album(resultSet));
+
+            return retVal;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public static List<Album> getAlbumsFrom(Collector collector, String title, long ISBN) {
+
+            try (Connection con = DBConnection.getConnection()) {
+
+                PreparedStatement pStmt = con.prepareStatement(
+                        "SELECT * FROM ALBUM " +
+                                "WHERE ISBN IN " +
+                                "(SELECT AV.ALBUM FROM ALBUM_VIRTUAL AV " +
+                                "WHERE ? = AV.COLECIONADOR) " +
+                                "AND UPPER(TITULO) LIKE UPPER((CONCAT(CONCAT('%', ?), '%'))) " +
+                                "AND TO_CHAR(ISBN) LIKE CONCAT(TO_CHAR(?), '%')");
+
+                pStmt.setString(1, collector.getCPF());
+                pStmt.setString(2, title);
+                pStmt.setLong(3, ISBN);
+
+                ResultSet resultSet = pStmt.executeQuery();
+
+                List<Album> retVal = new LinkedList<>();
+                while (resultSet.next())
+                    retVal.add(new Album(resultSet));
+
+                return retVal;
+
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+    }
+
+    public static List<Album> getAlbumsFrom(Collector collector, String title) {
+
+        try (Connection con = DBConnection.getConnection()) {
+
+            PreparedStatement pStmt = con.prepareStatement(
+                    "SELECT * FROM ALBUM " +
+                            "WHERE ISBN IN " +
+                            "(SELECT AV.ALBUM FROM ALBUM_VIRTUAL AV " +
+                            "WHERE ? = AV.COLECIONADOR) " +
+                            "AND UPPER(TITULO) LIKE UPPER((CONCAT(CONCAT('%', ?), '%')))");
+
+            pStmt.setString(1, collector.getCPF());
+            pStmt.setString(2, title);
+
+            ResultSet resultSet = pStmt.executeQuery();
+
+            List<Album> retVal = new LinkedList<>();
+            while (resultSet.next())
+                retVal.add(new Album(resultSet));
+
+            return retVal;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static List<Album> getAlbumsFrom(Collector collector, long ISBN) {
+
+        try (Connection con = DBConnection.getConnection()) {
+
+            PreparedStatement pStmt = con.prepareStatement(
+                    "SELECT * FROM ALBUM " +
+                            "WHERE ISBN IN " +
                             "(SELECT AV.ALBUM FROM ALBUM_VIRTUAL AV " +
                             "WHERE ? = AV.COLECIONADOR) " +
                             "AND TO_CHAR(ISBN) LIKE CONCAT(TO_CHAR(?), '%')");
