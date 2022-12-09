@@ -92,7 +92,7 @@ public class RegisterScreenController {
     }
 
     public void addressKeyReleased(KeyEvent keyEvent) {
-        int caret = caret = addressField.getCaretPosition() - 1;;
+        int caret = caret = addressField.getCaretPosition();
         String sFormatted = addressField.getText();
 
         int cutString;
