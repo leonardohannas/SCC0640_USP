@@ -6,6 +6,7 @@ import br.com.stickerboom.entity.Collector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -24,24 +25,18 @@ public class MainScreenCollectorController implements Initializable {
 
     @FXML
     private TextField searchISBNField;
-//
-//    @FXML
-//    private ListView<Album> listViewAlbumsCollector;
-//
-//    @FXML
-//    private Text collectorNameText;
-//
-//    @FXML
-//    private Label addressCollectorLabel;
-//
-//    @FXML
-//    private Label reputationCollectorLabel;
+
+    @FXML
+    private Label collectorNameLabel;
+
+    @FXML
+    private Label reputationCollectorLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        collectorNameText.setText(ScreenManager.getUser().getName());
+        collectorNameLabel.setText(ScreenManager.getUser().getName());
 //        addressCollectorLabel.setText(ScreenManager.getUser().getAddress());
-//        reputationCollectorLabel.setText("Reputação: " + Float.toString(((Collector) ScreenManager.getUser()).getReputation()));
+        reputationCollectorLabel.setText("Reputação: " + Float.toString(((Collector) ScreenManager.getUser()).getReputation()));
 //
         listViewAlbumsSystem.setCellFactory(new AlbumCellFactory());
 //        listViewAlbumsCollector.setCellFactory(new VirtualAlbumCellFactory());
