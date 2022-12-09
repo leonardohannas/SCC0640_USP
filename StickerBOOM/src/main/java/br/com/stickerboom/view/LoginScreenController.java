@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginScreenController implements Initializable {
+public class LoginScreenController {
 
     @FXML
     private TextField cpfField;
@@ -66,10 +66,10 @@ public class LoginScreenController implements Initializable {
 
         int caret = cpfField.getCaretPosition();
 
-        if (keyEvent.getCode() == KeyCode.BACK_SPACE && cpfField.getText().length() > 3)
+        if(keyEvent.getCode() == KeyCode.BACK_SPACE && cpfField.getText().length() > 3)
             caret--;
 
-        if (!cpfField.getText().matches("\\d")) {
+        if(!cpfField.getText().matches("\\d")) {
 
             String sFormatted = cpfField.getText().replaceAll("\\D", "");
 
@@ -99,13 +99,6 @@ public class LoginScreenController implements Initializable {
             cpfField.positionCaret(caret);
         }
     }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
-
-
-
     public void onContextMenuRequested(ContextMenuEvent contextMenuEvent) {
 
     }

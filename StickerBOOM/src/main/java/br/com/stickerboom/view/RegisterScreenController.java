@@ -104,7 +104,7 @@ public class RegisterScreenController {
             addressField.positionCaret(caret);
         }
 
-        if (!addressField.getText().matches("[\\w]+")) {
+        if(!addressField.getText().matches("[\\w]+")) {
             sFormatted = sFormatted.replaceAll("@", "");
 
             addressField.setText(sFormatted);

@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefHeight="600.0" prefWidth="900.0" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.ScreenCollectorController">
+<HBox prefHeight="600.0" prefWidth="900.0" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.ScreenCollectorController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="240.0" styleClass="background_red">
          <children>
@@ -65,14 +65,14 @@
                </styleClass>
             </Text>
             <ListView fx:id="listViewAlbums" layoutX="14.0" layoutY="143.0" prefHeight="360.0" prefWidth="550.0" stylesheets="@listview_style.css" />
-            <TextField fx:id="searchTitleField" layoutX="14.0" layoutY="106.0" prefHeight="24.0" prefWidth="180.0" promptText="Título" />
+            <TextField fx:id="searchTitleField" layoutX="14.0" layoutY="106.0" onKeyReleased="#titleKeyReleased" prefHeight="24.0" prefWidth="180.0" promptText="Título" />
             <Button fx:id="searchButton" layoutX="407.0" layoutY="106.0" mnemonicParsing="false" onAction="#onActionSearch" styleClass="main-style-button" text="Buscar" />
             <Label layoutX="14.0" layoutY="82.0" text="Buscar por:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="searchISBNField" layoutX="221.0" layoutY="106.0" prefHeight="24.0" prefWidth="160.0" promptText="ISBN" />
+            <TextField fx:id="searchISBNField" layoutX="221.0" layoutY="106.0" onKeyReleased="#ISBNKeyReleased" prefHeight="24.0" prefWidth="160.0" promptText="ISBN" />
             <Button fx:id="clearButton" layoutX="495.0" layoutY="106.0" mnemonicParsing="false" onAction="#onActionClear" styleClass="main-style-button" text="Limpar" />
          </children>
       </AnchorPane>

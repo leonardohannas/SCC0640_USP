@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -87,6 +88,45 @@ public class ScreenCollectorController implements Initializable {
 
         listS = Queries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
         updateListView();
+    }
+
+    public void titleKeyReleased(KeyEvent event) {
+
+        int caret = searchTitleField.getCaretPosition() - 1;
+        String sTitle = searchTitleField.getText();
+
+        int cutString;
+        int tamCurrent = sTitle.length();
+        if(tamCurrent > 30) {
+            cutString = tamCurrent - 30;
+            sTitle = sTitle.substring(0, tamCurrent - cutString);
+            searchTitleField.setText(sTitle);
+            searchTitleField.positionCaret(caret);
+        }
+    }
+
+    public void ISBNKeyReleased(KeyEvent event) {
+
+        String sISBN = searchISBNField.getText();
+
+        int caret;
+        int cutString;
+        int tamCurrent = sISBN.length();
+        if(tamCurrent > 13) {
+            caret = searchISBNField.getCaretPosition();
+            cutString = tamCurrent - 13;
+            sISBN = sISBN.substring(0, tamCurrent - cutString);
+            searchISBNField.setText(sISBN);
+            searchISBNField.positionCaret(caret);
+        }
+
+        if(!searchISBNField.getText().matches("\\d+")) {
+            caret = searchISBNField.getCaretPosition() - 1;
+            sISBN = searchISBNField.getText().replaceAll("\\D", "");
+            searchISBNField.setText(sISBN);
+            searchISBNField.positionCaret(caret);
+        }
+
     }
 
     public void onActionSearch(ActionEvent actionEvent) {
