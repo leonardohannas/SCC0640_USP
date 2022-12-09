@@ -6,7 +6,6 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="background_red" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.LoginScreenController">
    <children>
       <Group layoutX="331.0" layoutY="279.0" opacity="0.1" scaleX="3.5" scaleY="3.5">
@@ -20,7 +19,7 @@
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="328.0" styleClass="background_red-stickerboom" stylesheets="@listview_style.css">
                <children>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="15.0" layoutY="149.0" stroke="#2dc6cf" strokeType="OUTSIDE" strokeWidth="0.0" text="StickerBOOM">
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="15.0" layoutY="149.0" stroke="#2dc6cf" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="StickerBOOM">
                      <font>
                         <Font name="System Bold" size="40.0" />
                      </font>

@@ -76,6 +76,10 @@ Novas alteracoes
 ---------------------------------
 */
 
+.main-font-family {
+    -fx-font-family: Arial;
+}
+
 .main-style-button {
     -fx-background-radius: 20;
     -fx-background-color: #780808;
