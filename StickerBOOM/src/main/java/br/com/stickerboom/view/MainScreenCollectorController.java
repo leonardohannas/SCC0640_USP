@@ -1,7 +1,7 @@
 package br.com.stickerboom.view;
 
 import br.com.stickerboom.album.Album;
-import br.com.stickerboom.database.Queries;
+import br.com.stickerboom.database.CommonQueries;
 import br.com.stickerboom.entity.Collector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ScreenCollectorController implements Initializable {
+public class MainScreenCollectorController implements Initializable {
 
     @FXML
     private ListView<Album> listViewAlbums;
@@ -85,7 +85,7 @@ public class ScreenCollectorController implements Initializable {
                 changeWindow();
         });
 
-        listS = Queries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
+        listS = CommonQueries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
         updateListView();
     }
 
@@ -99,27 +99,27 @@ public class ScreenCollectorController implements Initializable {
         if (currentWindow == Window.AVAILABLE_ALBUMS) {
 
             if (sTitle == null && sISBN == null) {
-                listS = Queries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
+                listS = CommonQueries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
             } else if (sTitle == null || sTitle.length() == 0) {
                 long lISBN = Long.parseLong(sISBN);
                 System.out.println(lISBN);
-                listS = Queries.getAlbumsNotFrom((Collector) ScreenManager.getUser(), lISBN);
+                listS = CommonQueries.getAlbumsNotFrom((Collector) ScreenManager.getUser(), lISBN);
             } else {
                 sTitle = sTitle.toUpperCase();
-                listS = Queries.getAlbumsNotFrom((Collector) ScreenManager.getUser(), sTitle);
+                listS = CommonQueries.getAlbumsNotFrom((Collector) ScreenManager.getUser(), sTitle);
             }
 
         } else {
 
             if (sTitle == null && sISBN == null) {
-                listS = Queries.getAllAlbumsFrom((Collector) ScreenManager.getUser());
+                listS = CommonQueries.getAllAlbumsFrom((Collector) ScreenManager.getUser());
             } else if (sTitle == null || sTitle.length() == 0) {
                 long lISBN = Long.parseLong(sISBN);
                 System.out.println(lISBN);
-                listS = Queries.getAlbumsFrom((Collector) ScreenManager.getUser(), lISBN);
+                listS = CommonQueries.getAlbumsFrom((Collector) ScreenManager.getUser(), lISBN);
             } else {
                 sTitle = sTitle.toUpperCase();
-                listS = Queries.getAlbumsFrom((Collector) ScreenManager.getUser(), sTitle);
+                listS = CommonQueries.getAlbumsFrom((Collector) ScreenManager.getUser(), sTitle);
             }
         }
 
@@ -151,14 +151,14 @@ public class ScreenCollectorController implements Initializable {
             currentWindow = Window.MY_ALBUMS;
             titleSearchPage.setText(currentWindow.getTitle());
             listViewAlbums.setCellFactory(new VirtualAlbumCellFactory());
-            listS = Queries.getAllAlbumsFrom((Collector) ScreenManager.getUser());
+            listS = CommonQueries.getAllAlbumsFrom((Collector) ScreenManager.getUser());
 
         } else {
 
             currentWindow = Window.AVAILABLE_ALBUMS;
             titleSearchPage.setText(currentWindow.getTitle());
             listViewAlbums.setCellFactory(new AlbumCellFactory());
-            listS = Queries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
+            listS = CommonQueries.getAllAlbumsExcept((Collector) ScreenManager.getUser());
         }
 
         updateListView();

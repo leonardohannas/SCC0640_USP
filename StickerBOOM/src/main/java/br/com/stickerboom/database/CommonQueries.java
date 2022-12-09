@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Queries {
+public class CommonQueries {
 
         public static User getUser(String CPF) {
 
