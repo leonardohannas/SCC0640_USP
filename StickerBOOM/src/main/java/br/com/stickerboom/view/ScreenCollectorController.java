@@ -18,6 +18,11 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Classe que controla a tela screen_collector, possui campos para a busca dos álbuns e informações do usuário
+ * @since dec 2022
+ * @see javafx.fxml.Initializable
+ */
 public class ScreenCollectorController implements Initializable {
 
     @FXML
@@ -45,6 +50,9 @@ public class ScreenCollectorController implements Initializable {
     @FXML
     private HBox myAlbums;
 
+    /**
+     * Método privado
+     */
     private enum Window {
 
         AVAILABLE_ALBUMS {
@@ -65,6 +73,13 @@ public class ScreenCollectorController implements Initializable {
 
     private Window currentWindow = Window.AVAILABLE_ALBUMS;
 
+    /**
+     * Método que inicializa a screen_collector, indica os dados do usuário logado, os álbuns disponíveis e os álbuns
+     * que o colecionador já possui
+     * @since dec 2022
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -90,7 +105,12 @@ public class ScreenCollectorController implements Initializable {
         updateListView();
     }
 
-    public void titleKeyReleased(KeyEvent event) {
+    /**
+     * Método que delimita a quantidade de caracteres que podem ser inseridos no campo "Título" pelo usuário do sistema
+     * @since dec 2022
+     * @param keyEvent Evento acionado quando uma tecla do keyboard é liberada
+     */
+    public void titleKeyReleased(KeyEvent keyEvent) {
 
         int caret = searchTitleField.getCaretPosition() - 1;
         String sTitle = searchTitleField.getText();
@@ -105,7 +125,13 @@ public class ScreenCollectorController implements Initializable {
         }
     }
 
-    public void ISBNKeyReleased(KeyEvent event) {
+    /**
+     * Método que delimita a quantidade de caracteres que podem ser inseridos no campo "ISBN" e implementa um filtro
+     * para que o usuário somente digite numeros neste campo
+     * @since dec 2022
+     * @param keyEvent Evento acionado quando uma tecla do keyboard é liberada
+     */
+    public void ISBNKeyReleased(KeyEvent keyEvent) {
 
         String sISBN = searchISBNField.getText();
 
@@ -129,6 +155,11 @@ public class ScreenCollectorController implements Initializable {
 
     }
 
+    /**
+     * Método que busca no Banco de Dados por meio do "Título" e "ISBN" os álbuns que correspondem ao dados inseridos
+     * @since dec 2022
+     * @param actionEvent
+     */
     public void onActionSearch(ActionEvent actionEvent) {
 
         String sTitle = searchTitleField.getText();
@@ -162,11 +193,14 @@ public class ScreenCollectorController implements Initializable {
                 listS = Queries.getAlbumsFrom((Collector) ScreenManager.getUser(), sTitle);
             }
         }
-
-
         updateListView();
     }
 
+    /**
+     * Método que limpa os textfields da screen_collector
+     * @since dec 2022
+     * @param actionEvent Ação de apagar os campos "Título" e "ISBN"
+     */
     public void onActionClear(ActionEvent actionEvent) {
         clearFieldsSearch();
     }
@@ -176,6 +210,10 @@ public class ScreenCollectorController implements Initializable {
             listViewAlbums.getItems().add(album);
     }
 
+    /**
+     * Método utilizado por onActionClear para limpar os campos "Título" e "ISBN"
+     * @since dec 20022
+     */
     private void clearFieldsSearch() {
         searchTitleField.setText(null);
         searchISBNField.setText(null);
@@ -187,14 +225,12 @@ public class ScreenCollectorController implements Initializable {
         clearFieldsSearch();
 
         if (currentWindow == Window.AVAILABLE_ALBUMS) {
-
             currentWindow = Window.MY_ALBUMS;
             titleSearchPage.setText(currentWindow.getTitle());
             listViewAlbums.setCellFactory(new VirtualAlbumCellFactory());
             listS = Queries.getAllAlbumsFrom((Collector) ScreenManager.getUser());
 
         } else {
-
             currentWindow = Window.AVAILABLE_ALBUMS;
             titleSearchPage.setText(currentWindow.getTitle());
             listViewAlbums.setCellFactory(new AlbumCellFactory());
