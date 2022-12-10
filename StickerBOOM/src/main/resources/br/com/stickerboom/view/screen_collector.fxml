@@ -14,7 +14,7 @@
             <Group layoutX="-84.0" layoutY="38.0" styleClass="shadow">
                <children>
                   <SVGPath content="m411.313,123.313c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625,0l-32,32-9.375,9.375-20.688-20.688c-12.484-12.5-32.766-12.5-45.25,0l-16,16c-1.261,1.261-2.304,2.648-3.31,4.051-21.739-8.561-45.324-13.426-70.065-13.426-105.867,0-192,86.133-192,192s86.133,192 192,192 192-86.133 192-192c0-24.741-4.864-48.327-13.426-70.065 1.402-1.007 2.79-2.049 4.051-3.31l16-16c12.5-12.492 12.5-32.758 0-45.25l-20.688-20.688 9.375-9.375 32.001-31.999zm-219.313,100.687c-52.938,0-96,43.063-96,96 0,8.836-7.164,16-16,16s-16-7.164-16-16c0-70.578 57.422-128 128-128 8.836,0 16,7.164 16,16s-7.164,16-16,16z" fill="WHITE" layoutX="-102.0" layoutY="-313.0" scaleX="0.05" scaleY="0.05" />
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="120.0" layoutY="-1.0" stroke="#2dc6cf" strokeType="OUTSIDE" strokeWidth="0.0" text="StickerBOOM">
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="120.0" layoutY="-1.0" stroke="#2dc6cf" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="StickerBOOM">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -44,12 +44,12 @@
                   <SVGPath content="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z" fill="WHITE" />
                </children>
             </Group>
-            <Label fx:id="collectorNameLabel" layoutX="47.0" layoutY="552.0" text="Nome" textFill="WHITE">
+            <Label fx:id="collectorNameLabel" layoutX="47.0" layoutY="552.0" styleClass="main-font-family" text="Nome" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="reputationCollectorLabel" layoutX="48.0" layoutY="574.0" text="Reputação" textFill="WHITE">
+            <Label fx:id="reputationCollectorLabel" layoutX="48.0" layoutY="574.0" styleClass="main-font-family" text="Reputação" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
@@ -62,18 +62,25 @@
                <styleClass>
                   <String fx:value="text-title-pane" />
                   <String fx:value="shadow-light" />
+                  <String fx:value="main-font-family" />
                </styleClass>
             </Text>
             <ListView fx:id="listViewAlbums" fixedCellSize="50.0" layoutX="14.0" layoutY="143.0" prefHeight="360.0" prefWidth="550.0" stylesheets="@listview_style.css" />
             <TextField fx:id="searchTitleField" layoutX="14.0" layoutY="106.0" onKeyReleased="#titleKeyReleased" prefHeight="24.0" prefWidth="180.0" promptText="Título" />
-            <Button fx:id="searchButton" layoutX="407.0" layoutY="106.0" mnemonicParsing="false" onAction="#onActionSearch" styleClass="main-style-button" text="Buscar" />
-            <Label layoutX="14.0" layoutY="82.0" text="Buscar por:">
+            <Button fx:id="searchButton" layoutX="407.0" layoutY="106.0" mnemonicParsing="false" onAction="#onActionSearch" styleClass="main-style-button" text="Buscar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label layoutX="14.0" layoutY="82.0" styleClass="main-font-family" text="Buscar por:">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <TextField fx:id="searchISBNField" layoutX="221.0" layoutY="106.0" onKeyReleased="#ISBNKeyReleased" prefHeight="24.0" prefWidth="160.0" promptText="ISBN" />
-            <Button fx:id="clearButton" layoutX="495.0" layoutY="106.0" mnemonicParsing="false" onAction="#onActionClear" styleClass="main-style-button" text="Limpar" />
+            <Button fx:id="clearButton" layoutX="495.0" layoutY="106.0" mnemonicParsing="false" onAction="#onActionClear" styleClass="main-style-button" text="Limpar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </AnchorPane>
    </children>
