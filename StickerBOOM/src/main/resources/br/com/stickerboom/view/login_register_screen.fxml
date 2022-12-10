@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="background_red" stylesheets="@main_style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.stickerboom.view.LoginScreenController">
    <children>
@@ -18,14 +18,14 @@
       </Group>
       <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="shadow" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="100.0">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="328.0" styleClass="background_red-stickerboom" stylesheets="@listview_style.css">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="330.0" styleClass="background_red-stickerboom" stylesheets="@listview_style.css">
                <children>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="15.0" layoutY="149.0" stroke="#2dc6cf" strokeType="OUTSIDE" strokeWidth="0.0" text="StickerBOOM">
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="16.0" layoutY="149.0" stroke="#2dc6cf" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="StickerBOOM" AnchorPane.leftAnchor="16.4" AnchorPane.rightAnchor="16.4">
                      <font>
                         <Font name="System Bold" size="40.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="6.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dê um boom na sua coleção de álbuns e figurinhas!" wrappingWidth="314.986328125">
+                  <Text fill="WHITE" layoutX="8.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="Dê um boom na sua coleção de álbuns e figurinhas!" wrappingWidth="314.986328125" AnchorPane.leftAnchor="7.5" AnchorPane.rightAnchor="7.5">
                      <font>
                         <Font size="12.0" />
                      </font>
@@ -35,42 +35,60 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="100.0" layoutX="164.0" layoutY="219.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="65.0" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="400.0" prefWidth="285.0" style="-fx-background-color: white;">
+            <AnchorPane prefHeight="400.0" prefWidth="270.0" style="-fx-background-color: white;">
                <children>
-                  <Text fill="MEDIUMAQUAMARINE" layoutX="116.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fill_red" text="ou">
+                  <Text fill="MEDIUMAQUAMARINE" layoutX="116.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ou" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="114.830078125">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="fill_red" />
+                        <String fx:value="main-font-family" />
+                     </styleClass>
                   </Text>
-                  <Button fx:id="loginButton" layoutX="14.0" layoutY="242.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="100.0" style="-fx-background-radius: 20;" styleClass="background_red" stylesheets="@main_style.css" text="Entrar" textFill="WHITE">
+                  <Button fx:id="loginButton" layoutX="14.0" layoutY="242.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="26.0" prefWidth="100.0" style="-fx-background-radius: 20;" styleClass="background_red" stylesheets="@main_style.css" text="Entrar" textFill="WHITE" AnchorPane.leftAnchor="14.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <TextField fx:id="cpfField" layoutX="13.0" layoutY="192.0" onContextMenuRequested="#onContextMenuRequested" onKeyReleased="#onKeyReleased" prefHeight="33.0" prefWidth="245.0" promptText="CPF">
+                  <TextField fx:id="cpfField" layoutX="13.0" layoutY="192.0" onContextMenuRequested="#onContextMenuRequested" onKeyReleased="#onKeyReleased" prefHeight="33.0" prefWidth="245.0" promptText="CPF" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="registerButton" layoutX="158.0" layoutY="242.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="26.0" prefWidth="100.0" style="-fx-background-radius: 20;" styleClass="background_red" stylesheets="@main_style.css" text="Registrar" textFill="WHITE">
+                  <Button fx:id="registerButton" layoutX="155.0" layoutY="242.0" mnemonicParsing="false" onAction="#onRegisterButtonClick" prefHeight="26.0" prefWidth="100.0" style="-fx-background-radius: 20;" styleClass="background_red" stylesheets="@main_style.css" text="Registrar" textFill="WHITE" AnchorPane.rightAnchor="15.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Text fill="DARKGRAY" layoutX="14.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF do Usuário">
+                  <Text fill="DARKGRAY" layoutX="14.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-font-family" text="CPF do Usuário" AnchorPane.leftAnchor="14.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text fill="MEDIUMAQUAMARINE" layoutX="43.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fill_red" text="Entre agora">
+                  <Text fill="MEDIUMAQUAMARINE" layoutX="43.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entre agora" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="41.130859375">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="fill_red" />
+                        <String fx:value="main-font-family" />
+                     </styleClass>
                   </Text>
-                  <Text fill="MEDIUMAQUAMARINE" layoutX="45.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fill_red" text="Registre-se">
+                  <Text fill="MEDIUMAQUAMARINE" layoutX="45.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registre-se" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="44.681640625">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>
+                     <styleClass>
+                        <String fx:value="fill_red" />
+                        <String fx:value="main-font-family" />
+                     </styleClass>
                   </Text>
                   <Text fx:id="errorText" fill="RED" layoutX="13.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="245.0" />
                </children>

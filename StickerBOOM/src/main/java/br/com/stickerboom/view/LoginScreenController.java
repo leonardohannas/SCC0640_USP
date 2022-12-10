@@ -1,9 +1,14 @@
 package br.com.stickerboom.view;
 
 import br.com.stickerboom.database.Queries;
+import br.com.stickerboom.entity.Administrator;
 import br.com.stickerboom.entity.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.*;
@@ -33,15 +38,47 @@ public class LoginScreenController {
      * @param actionEvent Evento do botão de Login
      */
     public void onLoginButtonClick(ActionEvent actionEvent) {
+
         String cpf = cpfField.getText();
+
+        if (cpf.length() != 14) {
+            ScreenManager.showAlert(
+                    "CPF inválido",
+                    "Formato de CPF inválido!",
+                    "Um formato válido é: xxx.xxx.xxx-xx",
+                    Alert.AlertType.INFORMATION
+            );
+
+            return;
+        }
+
         User user = Queries.getUser(cpf);
+
         if (user != null) {
+
+            if (user instanceof Administrator) {
+                ScreenManager.showAlert(
+                        "Login inválido",
+                        "Usuário inválido",
+                        "Não é possível entrar com a conta de um administrador nesta aplicação!",
+                        Alert.AlertType.ERROR);
+                return;
+            }
+
             ScreenManager.setUser(user);
             try {
                 ScreenManager.showMainScreenCollector();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        } else {
+
+            ScreenManager.showAlert(
+                    "Usuário inválido",
+                    "Nenhum colecionador com este CPF foi encontrado!",
+                    "Clique em Registrar e aproveite um mundo de possibilidades!",
+                    Alert.AlertType.INFORMATION
+            );
         }
     }
 

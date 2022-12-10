@@ -3,6 +3,7 @@ package br.com.stickerboom.view;
 import br.com.stickerboom.entity.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -81,5 +82,13 @@ public class ScreenManager {
      */
     public static void showMainScreenCollector() throws IOException {
         showFXMLScreen(PATH_MAIN_SCREEN_COLLECTOR);
+    }
+
+    public static void showAlert(String title, String header, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
