@@ -12,6 +12,10 @@ import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 
+/**
+ * Classe que recebe "CPF, NOME, ENDEREÇO" do usuário para registra-lo no Banco de Dados
+ * @since dec 2022
+ */
 public class RegisterScreenController {
 
     @FXML
@@ -26,20 +30,25 @@ public class RegisterScreenController {
     @FXML
     private TextField addressField;
 
+    /**
+     * Método que faz a formatação e tratamento dos dados inseridos pelo usuário no campo "CPF"
+     * @since dec 2022
+     * @param keyEvent Evento acionado quando uma tecla do keyboard é liberada
+     */
     public void cpfKeyReleased(KeyEvent keyEvent) {
         if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
             return;
 
         int caret = cpfField.getCaretPosition();
 
-        if (keyEvent.getCode() == KeyCode.BACK_SPACE && cpfField.getText().length() > 3)
+        if(keyEvent.getCode() == KeyCode.BACK_SPACE && cpfField.getText().length() > 3)
             caret--;
 
-        if (!cpfField.getText().matches("\\d")) {
+        if(!cpfField.getText().matches("\\d")) {
 
             String sFormatted = cpfField.getText().replaceAll("\\D", "");
 
-            if (sFormatted.length() > 11) // 11 digitos CPF
+            if(sFormatted.length() > 11) // 11 digitos CPF
                 sFormatted = cpfValue;
 
             cpfValue = sFormatted;
@@ -65,6 +74,11 @@ public class RegisterScreenController {
         }
     }
 
+    /**
+     * Método que delimita a quantidade e filtra os caracteres que podem ser inseridos pelo usuário no no campo "NOME"
+     * @since dec 2022
+     * @param keyEvent
+     */
     public void nameKeyReleased(KeyEvent keyEvent) {
 
         int caret = nameField.getCaretPosition() - 1;
@@ -89,6 +103,11 @@ public class RegisterScreenController {
         }
     }
 
+    /**
+     * Método que delimita a quantidade e filtra os caracteres que podem ser inseridos pelo usuário no no campo "ENDEREÇO"
+     * @since dec 2022
+     * @param keyEvent Evento acionado quando uma tecla do keyboard é liberada
+     */
     public void addressKeyReleased(KeyEvent keyEvent) {
         int caret = caret = addressField.getCaretPosition();
         String sFormatted = addressField.getText();
@@ -112,10 +131,21 @@ public class RegisterScreenController {
         }
     }
 
+    /**
+     * Método que retorna a tela login_register_screen
+     * @since dec 2022
+     * @param actionEvent Evento do botão de retorno à tela login_register_screen
+     * @throws IOException Erro de acesso a tela de login
+     */
     public void buttonReturnScreen(ActionEvent actionEvent) throws IOException {
         ScreenManager.showLoginRegisterScreen();
     }
 
+    /**
+     * Método que registra as informações dos usuários no Banco de Dados
+     * @since dec 2022
+     * @param actionEvent Evento do botão Registrar
+     */
     public void onActionRegister(ActionEvent actionEvent) {
 
         String cpf, name, address;

@@ -13,10 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.*;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Método que controla a tela login_register_screen, onde o usuário do sistema faz login ou se registra no sistema
+ * @since dec 2022
+ */
 public class LoginScreenController {
 
     @FXML
@@ -29,6 +32,11 @@ public class LoginScreenController {
     @FXML
     private Button registerButton;
 
+    /**
+     * Método que valida, recupera os dados de um colecionador e entra na tela screen_collector
+     * @since dec 2022
+     * @param actionEvent Evento do botão de Login
+     */
     public void onLoginButtonClick(ActionEvent actionEvent) {
 
         String cpf = cpfField.getText();
@@ -74,21 +82,21 @@ public class LoginScreenController {
         }
     }
 
-    public void onRegisterButtonClick(ActionEvent actionEvent) {
-        try{
-            Stage currentScreen = (Stage) registerButton.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("register_screen.fxml"));
-            Scene scene = new Scene(root);
-            currentScreen.setScene(scene);
-            currentScreen.show();
-        } catch(IOException e) {
-            Alert message = new Alert(Alert.AlertType.ERROR);
-            message.setContentText(e.getMessage());
-            message.setHeaderText(null);
-            message.showAndWait();
-        }
+    /**
+     * Método que direciona o usuário a tela "register_screen"
+     * @since dec 2022
+     * @param actionEvent Evento do botão "Registrar" usuário
+     * @throws IOException Falha ao abrir a tela de registro do usuário
+     */
+    public void onRegisterButtonClick(ActionEvent actionEvent) throws IOException {
+        ScreenManager.showRegisterScreen();
     }
 
+    /**
+     * Método que faz a formatação e tratamento dos dados inseridos pelo usuário no campo "CPF"
+     * @since dec 2022
+     * @param keyEvent Evento acionado quando uma tecla do keyboard é liberada
+     */
     public void onKeyReleased(KeyEvent keyEvent) {
 
         if(keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
