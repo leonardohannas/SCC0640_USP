@@ -11,12 +11,12 @@
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="300.0">
          <children>
-            <Label fx:id="titleLabel" styleClass="main-font-family" text="Título">
+            <Label fx:id="titleLabel" styleClass="title-format" text="Título">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="ISBNLabel" styleClass="main-font-family" text="ISBN">
+            <Label fx:id="ISBNLabel" styleClass="isbn-format" text="ISBN">
                <font>
                   <Font name="System Italic" size="10.0" />
                </font>
@@ -31,12 +31,12 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="85.0" layoutY="22.0" rotate="-30.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="92.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" layoutX="100.0" layoutY="22.0" rotate="30.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
-            <Label fx:id="numberStickersLabel" layoutX="146.0" layoutY="13.0" prefWidth="26.0" styleClass="main-font-family" text="000" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="numberStickersLabel" layoutX="146.0" layoutY="13.0" prefWidth="26.0" styleClass="stickers-format" text="000" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="maxStickersLabel" layoutX="146.0" layoutY="31.0" prefWidth="26.0" styleClass="main-font-family" text="000" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="maxStickersLabel" layoutX="146.0" layoutY="31.0" prefWidth="26.0" styleClass="stickers-format" text="000" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>

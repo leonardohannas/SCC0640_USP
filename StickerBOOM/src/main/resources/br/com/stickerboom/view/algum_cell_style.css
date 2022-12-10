@@ -1,3 +1,25 @@
 .background-gradient {
     -fx-background-color: linear-gradient(to left, #780808 35%, white 35%);
 }
+
+.title-format {
+    -fx-text-fill: black;
+    -fx-font-size: 22px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+
+.isbn-format {
+    -fx-text-fill: black;
+    -fx-font-size: 10px;
+    -fx-font-family: Arial;
+    -fx-font-style: italic;
+}
+
+.stickers-format {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+}
