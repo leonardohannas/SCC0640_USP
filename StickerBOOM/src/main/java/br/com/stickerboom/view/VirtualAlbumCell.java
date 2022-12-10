@@ -51,7 +51,6 @@ public class VirtualAlbumCell extends ListCell<Album> {
             setGraphic(null);
 
         } else {
-
             titleLabel.setText(album.getTitle());
             ISBNLabel.setText("ISBN: " + Long.toString(album.getISBN()));
             maxStickersLabel.setText(Integer.toString(album.getStickerNumber()));
